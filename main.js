@@ -258,3 +258,136 @@ productLeftButton.addEventListener('click', ()=>{
     }
 })
 // -------------- Product functions -------------- ///
+
+
+
+// -------------- Customers functions -------------- //
+
+const customerLeftBtn = document.querySelector('.customerLeftBtn');
+const customerRightBtn = document.querySelector('.customerRightBtn');
+
+const customerP1 = document.querySelector('.customer-contents-p1');
+const customerP2 = document.querySelector('.customer-contents-p2');
+const customerImage = document.querySelector('.customer-contents-img');
+
+const customerNavigationDotsContainer = document.querySelector('.customer-contents-navigation-dots');
+const customerInformations = [
+    {
+        p1:"There are many variations of pages of Lorem Ipsun available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable",
+        p2:`Wade Warren 
+            UI Designer`,
+        img:"./9-additionals/Customer.png"
+    },
+    {
+        p1:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione nulla quidem dolorum consequatur exercitationem. Impedit et iure cupiditate doloribus architecto.",
+        p2:`John Smith 
+            UX Designer`,
+        img:"./9-additionals/1.png"
+    },
+    {
+        p1:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore molestias soluta corporis similique minima! Fuga illo animi numquam soluta beatae.",
+        p2:`Carlin Wollin 
+            Backend Programmer`,
+        img:"./9-additionals/2.png"
+    },
+]
+
+for (let i = 0;i < customerInformations.length;i++){
+    let navigationDot = document.createElement('div');
+    navigationDot.classList = "customer-navigation-dot";
+    customerNavigationDotsContainer.appendChild(navigationDot);
+}
+
+var customNavigationDots = document.querySelectorAll('.customer-navigation-dot');
+
+
+
+customerP1.innerText = customerInformations[0].p1;
+customerP2.innerText = customerInformations[0].p2;
+customerImage.src = customerInformations[0].img;
+
+customNavigationDots[0].classList.add('custom-dot');
+
+let count = 0
+customerRightBtn.onclick = () =>{
+    count++
+
+    if(count == customerInformations.length){
+        count = 0
+        customerP1.innerText = customerInformations[0].p1;
+        customerP2.innerText = customerInformations[0].p2;
+        customerImage.src = customerInformations[0].img;
+        
+        for (let i = 0;i < customerInformations.length;i++){
+            customNavigationDots[i].classList.remove('custom-dot')
+        }
+
+        customNavigationDots[0].classList.add('custom-dot')
+    }
+    else{
+        customerP1.innerText = customerInformations[count].p1;
+        customerP2.innerText = customerInformations[count].p2;
+        customerImage.src = customerInformations[count].img;
+    
+        for (let i = 0;i < customerInformations.length;i++){
+            if (count == i){
+                customNavigationDots[i].classList.add('custom-dot');
+            }
+            else{
+                customNavigationDots[i].classList.remove('custom-dot');
+            }
+        }
+    }
+}
+customerLeftBtn.onclick = ()=>{
+    if (count >= 1){
+        
+        count--
+        customerP1.innerText = customerInformations[count].p1;
+        customerP2.innerText = customerInformations[count].p2;
+        customerImage.src = customerInformations[count].img;
+    
+        for (let i = 0;i < customerInformations.length;i++){
+            if (count == i){
+                customNavigationDots[i].classList.add('custom-dot');
+            }
+            else{
+                customNavigationDots[i].classList.remove('custom-dot');
+            }
+        }
+    }
+    else if(count <= 0){
+
+        count = customerInformations.length - 1; 
+
+        customerP1.innerText = customerInformations[count].p1;
+        customerP2.innerText = customerInformations[count].p2;
+        customerImage.src = customerInformations[count].img;
+    
+        for (let i = 0;i < customerInformations.length;i++){
+            customNavigationDots[i].classList.remove('custom-dot')
+        }
+
+        customNavigationDots[customerInformations.length - 1].classList.add('custom-dot')
+    }
+}
+
+for (let i = 0;i < customNavigationDots.length;i++){
+    customNavigationDots[i].onclick = ()=>{
+        count = i;
+
+        for (let k = 0;k < customNavigationDots.length;k++){
+            if (count == k){
+                customNavigationDots[k].classList.add('custom-dot');
+            }
+            else{
+                customNavigationDots[k].classList.remove('custom-dot');
+            }
+
+            customerP1.innerText = customerInformations[count].p1;
+            customerP2.innerText = customerInformations[count].p2;
+            customerImage.src = customerInformations[count].img;
+        }
+    }
+}
+// -------------- Customers functions -------------- ///
