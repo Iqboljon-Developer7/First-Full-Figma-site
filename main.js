@@ -39,6 +39,8 @@ const collectionP1 = document.querySelector('.collectionP1');
 const collectionH1 = document.querySelector('.collectionH1');
 const collectionP2 = document.querySelector('.collectionP2');
 
+const collectionInfo = document.querySelectorAll('.collectionInfos');
+
 let collectionInfos = [
     {
         p1:'New Cloth!',
@@ -85,6 +87,7 @@ collectionH1.innerText = collectionInfos[0].h1;
 collectionP2.innerText = collectionInfos[0].p2;
 collectionContainer.style.backgroundImage = collectionInfos[0].img;
 
+
 var navigationsDots = document.querySelectorAll('.navigation-dot');
 navigationsDots[0].classList.add('active');
 
@@ -93,7 +96,10 @@ buttonRight.addEventListener("click", ()=>{
     
     for(let i = 0;i < navigationsDots.length; i++){
         if (i == son){
-            navigationsDots[i].classList.add('active');
+            // navigationsDots[i].classList.add('active');
+            setTimeout(() => {
+                navigationsDots[i].classList.add('active');
+            }, 500);
         }
         else{
             navigationsDots[i].classList.remove('active');
@@ -101,32 +107,82 @@ buttonRight.addEventListener("click", ()=>{
     }
 
     if (son < uzunlik){
-        collectionP1.innerText = collectionInfos[son].p1;
-        collectionH1.innerText = collectionInfos[son].h1;
-        collectionP2.innerText = collectionInfos[son].p2;
-        collectionContainer.style.backgroundImage = collectionInfos[son].img;
+        setTimeout(() => {
+            collectionP1.innerText = collectionInfos[son].p1;
+            collectionH1.innerText = collectionInfos[son].h1;
+            collectionP2.innerText = collectionInfos[son].p2;
+            collectionContainer.style.backgroundImage = collectionInfos[son].img;
+        }, 500);
+    
+
+        collectionContainer.classList.remove('collectionBackImage');   
+        
+        setTimeout(() => {
+            collectionContainer.classList.add('collectionBackImage');      
+        }, 0);
+
+        for (let k = 0;k < collectionInfo.length;k++){
+            collectionInfo[k].classList.remove('collection-infos-animation');
+            setTimeout(() => {
+                collectionInfo[k].classList.add('collection-infos-animation');
+            }, 0);
+        }
     }
     else if(son >= uzunlik){
         navigationsDots[0].classList.add('active');
 
         son = 0;
-        collectionP1.innerText = collectionInfos[son].p1;
-        collectionH1.innerText = collectionInfos[son].h1;
-        collectionP2.innerText = collectionInfos[son].p2;
-        collectionContainer.style.backgroundImage = collectionInfos[son].img;
+
+        setTimeout(() => {
+            collectionP1.innerText = collectionInfos[son].p1;
+            collectionH1.innerText = collectionInfos[son].h1;
+            collectionP2.innerText = collectionInfos[son].p2;
+            collectionContainer.style.backgroundImage = collectionInfos[son].img;
+        }, 500);
+
+        collectionContainer.classList.remove('collectionBackImage');   
+        
+        setTimeout(() => {
+            collectionContainer.classList.add('collectionBackImage');      
+        }, 0);
+
+        for (let k = 0;k < collectionInfo.length;k++){
+            collectionInfo[k].classList.remove('collection-infos-animation');
+            setTimeout(() => {
+                collectionInfo[k].classList.add('collection-infos-animation');
+            }, 0);
+        }
     }
 })
 buttonLeft.addEventListener("click", ()=>{
     if (son > 0){
         son -= 1;
-        collectionP1.innerText = collectionInfos[son].p1;
-        collectionH1.innerText = collectionInfos[son].h1;
-        collectionP2.innerText = collectionInfos[son].p2;
-        collectionContainer.style.backgroundImage = collectionInfos[son].img;
-    
+        
+        setTimeout(() => {            
+            collectionP1.innerText = collectionInfos[son].p1;
+            collectionH1.innerText = collectionInfos[son].h1;
+            collectionP2.innerText = collectionInfos[son].p2;
+            collectionContainer.style.backgroundImage = collectionInfos[son].img;
+        }, 500);
+
+        collectionContainer.classList.remove('collectionBackImage');   
+
+        setTimeout(() => {
+            collectionContainer.classList.add('collectionBackImage');      
+        }, 0);
+
+        for (let k = 0;k < collectionInfo.length;k++){
+            collectionInfo[k].classList.remove('collection-infos-animation');
+            setTimeout(() => {
+                collectionInfo[k].classList.add('collection-infos-animation');
+            }, 0);
+        }                                                                                                                       
+
         for(let i = 0;i < navigationsDots.length; i++){
             if (i == son){
-                navigationsDots[i].classList.add('active');
+                setTimeout(() => {
+                    navigationsDots[i].classList.add('active');
+                }, 500);
             }
             else{
                 navigationsDots[i].classList.remove('active');
@@ -135,13 +191,25 @@ buttonLeft.addEventListener("click", ()=>{
     }
     else if(son == 0){
         son = uzunlik - 1;
-        collectionP1.innerText = collectionInfos[son].p1;
-        collectionH1.innerText = collectionInfos[son].h1;
-        collectionP2.innerText = collectionInfos[son].p2;
-        collectionContainer.style.backgroundImage = collectionInfos[son].img;
-        
+
+        setTimeout(() => {            
+            collectionP1.innerText = collectionInfos[son].p1;
+            collectionH1.innerText = collectionInfos[son].h1;
+            collectionP2.innerText = collectionInfos[son].p2;
+            collectionContainer.style.backgroundImage = collectionInfos[son].img;
+        }, 500);
+
         navigationsDots[0].classList.remove('active');
-        navigationsDots[collectionInfos.length - 1].classList.add('active');
+        
+        setTimeout(() => {
+            navigationsDots[collectionInfos.length - 1].classList.add('active');
+        }, 500);
+    
+        collectionContainer.classList.remove('collectionBackImage');   
+        
+        setTimeout(() => {
+            collectionContainer.classList.add('collectionBackImage');      
+        }, 0);
     }
 });
 // Collections dot functions //
@@ -391,3 +459,26 @@ for (let i = 0;i < customNavigationDots.length;i++){
     }
 }
 // -------------- Customers functions -------------- ///
+
+
+
+// -------------- Footer functions -------------- //
+
+const footer2Contents = document.querySelectorAll('.footer2-content');
+const footer2Icons = document.querySelectorAll('.footer2-icon');
+
+let nimadur = 0;
+for (let i = 0;i < footer2Contents.length;i++){
+    nimadur++;
+    footer2Icons[i].onclick = () =>{
+        for (let j = 0;j < footer2Icons.length; j++){
+            if (j == i){
+                footer2Contents[j].classList.add('footer2-content2');
+            }
+            else{
+                footer2Contents[j].classList.remove('footer2-content2');
+            }
+        }
+    }
+}
+// -------------- Footer functions -------------- ///
