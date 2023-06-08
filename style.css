@@ -146,6 +146,8 @@ body{
     height: 80px;
     display: grid;
     grid-template-columns: 5fr 4fr 4fr 3fr;
+
+    z-index:999;
 }
 .header::before{
     content: '';
@@ -244,7 +246,7 @@ body{
 /* menu's styles */
 .bx-menu{
     display: none;
-    z-index: 2;
+    z-index: 202;
     transition: 1.2s;
 }
 .bx-menu2{
