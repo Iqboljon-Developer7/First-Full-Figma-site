@@ -393,12 +393,12 @@
 /* Clothes discount /*/
 
 /* product */
-@media (max-width:600px){
+@media (max-width:940px){
     .products-cards-container{
         flex-direction: row;
         flex-wrap: nowrap;
         height: 100%;
-        justify-content: flex-start;
+        justify-content: center;
         overflow-x: scroll;
         padding: 0;
     }
@@ -423,9 +423,10 @@
         font-size: 0.702rem !important;
     }
 }
-@media (max-width:482px){
+@media (max-width:720px){
     .products-cards-container{
-        width: 200px;
+        width: 440px;
+        justify-content: flex-start;
     }
 
     .products-info > h1{
@@ -436,6 +437,11 @@
         width: 66% !important;
         font-size: 0.666rem !important;
         color: rgb(50.2, 50.2, 50.2);
+    }
+}
+@media (max-width:500px){
+    .products-cards-container{
+        width: 200px;
     }
 }
 @media (max-width:300px){
@@ -1180,4 +1186,34 @@
     }
 }
 /* copyright /*/
+
+/* searchContents */
+
+@media (max-width:940px) {
+    .search-content{
+        width: 280px;
+        height: 400px;
+    }
+    .search-content img{
+        width: 100%;
+    }
+}
+@media (max-width:480px) {
+    .search-content{
+        width: 220px;
+        height: 320px;
+    }
+    .search-content-info{
+        font-size: 12px;
+    }
+    .search-content-button{
+        height: 36px;
+    }
+    .search-content-button button{
+        padding: 4px 8.8px;
+        font-size: 12px;
+    }
+}
+
+/* searchContents /*/
 /* ------------------- Responsiveness -------------------. */

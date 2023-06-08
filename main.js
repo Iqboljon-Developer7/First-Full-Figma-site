@@ -1,31 +1,91 @@
 // -------------- Navbar functions -------------- //
-
-
-// const header = document.querySelector('.header');
-
-// const form = document.querySelector('.form');
-// const formContainer = document.querySelector('.form-container');
-// const formSearchButton = document.querySelector('.form-search-button');
-// const formSearchInput = document.querySelector('.form-search-input');
-// const formSearchSelect = document.querySelector('.form-search-select');
-
 const searchIcon1 = document.querySelector('.search-icon1')
-
 
 const header2 = document.querySelector('.header2');
 const menuIcon = document.querySelector('.bx-menu');
 const menuIcon3 = document.querySelector('.bx-menu3');
 
+const exitLayer = document.querySelector('.exit-layer');
+
 menuIcon.onclick = () =>{
     menuIcon.classList.toggle('bx-menu2');
     header2.classList.toggle('show');
+    exitLayer.classList.toggle('exit-layer-show');
+    header2.classList.toggle('z');
 }
 menuIcon3.onclick = () =>{
     menuIcon.classList.toggle('bx-menu2');
     header2.classList.toggle('show');
+    exitLayer.classList.toggle('exit-layer-show');
+    header2.classList.toggle('z');
+}
+exitLayer.onclick = () =>{
+    menuIcon.classList.toggle('bx-menu2');
+    header2.classList.toggle('show');
+    exitLayer.classList.toggle('exit-layer-show');
+    header2.classList.toggle('z');
 }
 
 // -------------- Navbar functions -------------- ///
+
+
+
+// -------------- Navbar functions -------------- //
+
+const searchContents = document.querySelectorAll('.search-content');
+const searchContentsInfo = document.querySelectorAll('.search-content-p');
+
+const searchLayer = document.querySelector('.Search-layer');
+const searchInput = document.querySelector('.form-search-input');
+const searchInput2 = document.querySelector('.form-search-input2');
+
+const searchExitLayer = document.querySelector('.exit-layer2');
+
+searchInput.onclick = () =>{
+    searchLayer.classList.toggle('Search-layer-show');
+    searchExitLayer.classList.toggle('exit-layer2-2');
+}
+searchLayer.onclick = () =>{
+    searchLayer.classList.toggle('Search-layer-show');
+    searchExitLayer.classList.toggle('exit-layer2-2');
+}
+
+
+function searchContentFilter(){
+    let inputInfo = searchInput.value;
+    for (let i = 0;i < searchContentsInfo.length;i++){
+        inputInfo = inputInfo.charAt(0).toUpperCase() + inputInfo.slice(1);
+        if (searchContentsInfo[i].innerText.startsWith(inputInfo)){
+            searchContents[i].style.display = 'block';
+        }
+        else{
+            searchContents[i].style.display = 'none';
+        }
+    }
+}
+function searchContentFilter(){
+    let inputInfo = searchInput2.value;
+    for (let i = 0;i < searchContentsInfo.length;i++){
+        inputInfo = inputInfo.charAt(0).toUpperCase() + inputInfo.slice(1);
+        if (searchContentsInfo[i].innerText.startsWith(inputInfo)){
+            searchContents[i].style.display = 'block';
+        }
+        else{
+            searchContents[i].style.display = 'none';
+        }
+    }
+}
+
+const form2 = document.querySelector('.form2');
+const navbarInput2 = document.querySelector('.form-search-input2');
+
+navbarInput2.onclick = () =>{
+    form2.classList.toggle('form2-2');
+    searchLayer.classList.toggle('Search-layer-show');
+    header2.classList.toggle('invisible');
+}
+// -------------- Navbar functions -------------- ///
+
 
 
 // -------------- Collection functions -------------- //
@@ -129,7 +189,9 @@ buttonRight.addEventListener("click", ()=>{
         }
     }
     else if(son >= uzunlik){
-        navigationsDots[0].classList.add('active');
+        setTimeout(() => {
+            navigationsDots[0].classList.add('active');
+        }, 500);
 
         son = 0;
 
