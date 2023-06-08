@@ -147,7 +147,7 @@ body{
     display: grid;
     grid-template-columns: 5fr 4fr 4fr 3fr;
 
-    z-index:999;
+    z-index:101;
 }
 .header::before{
     content: '';
