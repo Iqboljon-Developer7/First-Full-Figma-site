@@ -41,7 +41,7 @@ body{
     width: 100vw;
     height: 100vh;
     position: fixed;
-    top: -100%;
+    top: -120%;
     left: 0;
     background-color: rgba(0, 0, 0, 0.0);
     backdrop-filter: blur(10px);
