@@ -47,7 +47,7 @@ searchInput.onclick = () =>{
 }
 searchLayer.onclick = () =>{
     searchLayer.classList.toggle('Search-layer-show');
-    // searchExitLayer.classList.toggle('exit-layer2-2');
+    searchExitLayer.classList.toggle('exit-layer2-2');
 }
 
 
